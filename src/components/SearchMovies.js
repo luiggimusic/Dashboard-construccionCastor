@@ -43,16 +43,16 @@ function SearchMovies(props) {
 								{/* Buscador */}
 								<form method="GET" onSubmit={handleSubmit}>
 									<div className="form-group">
-										<label htmlFor="">Buscar por título:</label>
+										<label htmlFor="">Buscar por nombre:</label>
 										<input type="text" className="form-control" ref={search} />
 									</div>
-									<button className="btn btn-info" type='submit' >Search</button>
+									<button className="btn btn-info" type='submit' >Buscar producto</button>
 								</form>
 							</div>
 						</div>
 						<div className="row">
 							<div className="col-12">
-								<h2>Películas para la palabra: {keyword}</h2>
+								<h2>Productos para la palabra: {keyword}</h2>
 							</div>
 							{/* Listado de películas */}
 							{
@@ -80,7 +80,7 @@ function SearchMovies(props) {
 								})
 							}
 						</div>
-						{movies.length === 0 && <div className="alert alert-warning text-center">No se encontraron películas</div>}
+						{movies.length === 0 && <div className="alert alert-warning text-center">No se encontraron productos</div>}
 					</>
 					:
 					<div className="alert alert-danger text-center my-4 fs-2">Eyyyy... ¿PUSISTE TU APIKEY?</div>
