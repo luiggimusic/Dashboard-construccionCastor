@@ -6,26 +6,26 @@ import SmallCard from './SmallCard';
 /* <!-- Movies in DB --> */
 
 let moviesInDB = {
-    title: 'Movies in Data Base',
+    title: 'Productos totales',
     color: 'primary', 
-    cuantity: 21,
+    cuantity: 4521,
     icon: 'fa-clipboard-list'
 }
 
 /* <!-- Total awards --> */
 
 let totalAwards = {
-    title:' Total awards', 
-    color:'success', 
-    cuantity: '79',
+    title:' Categorías totales', 
+    color:'primary', 
+    cuantity: '7',
     icon:'fa-award'
 }
 
 /* <!-- Actors quantity --> */
 
 let actorsQuantity = {
-    title:'Actors quantity' ,
-    color:'warning',
+    title:'Usuarios totales' ,
+    color:'primary',
     cuantity:'49',
     icon:'fa-user-check'
 }
