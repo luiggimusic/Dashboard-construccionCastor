@@ -1,8 +1,8 @@
 import React from 'react';
 import image from '../assets/images/castorLogo.webp';
 import ContentWrapper from './ContentWrapper';
-import GenresInDb from './GenresInDb';
-import LastMovieInDb from './LastMovieInDb';
+import CategoriasProductos from './CategoriasProductos';
+import ProductosDestacados from './ProductosDestacados';
 import ContentRowMovies from './ContentRowMovies';
 import NotFound from './NotFound';
 import SearchMovies from './SearchMovies';
@@ -39,7 +39,7 @@ function SideBar() {
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/GenresInDb">
+                    <Link className="nav-link" to="/CategoriasProductos">
                         <i className="fas fa-fw fa-folder"></i>
                         <span>Categorías de productos</span>
                     </Link>
@@ -47,7 +47,7 @@ function SideBar() {
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/LastMovieInDb">
+                    <Link className="nav-link" to="/ProductosDestacados">
                         <i className="fas fa-fw fa-chart-area"></i>
                         <span>Productos destacados</span></Link>
                 </li>
@@ -74,11 +74,11 @@ function SideBar() {
             {/*<!--<Route exact path="/">
                 <ContentWrapper />
             </Route>
-            <Route path="/GenresInDb">
-                <GenresInDb />
+            <Route path="/CategoriasProductos">
+                <CategoriasProductos />
             </Route>
-            <Route path="/LastMovieInDb">
-                <LastMovieInDb />
+            <Route path="/ProductosDestacados">
+                <ProductosDestacados />
             </Route>
             <Route path="/ContentRowMovies">
                 <ContentRowMovies />
@@ -90,11 +90,11 @@ function SideBar() {
                 <Route exact path="/">
                     <ContentWrapper />
                 </Route>
-                <Route path="/GenresInDb">
-                    <GenresInDb />
+                <Route path="/CategoriasProductos">
+                    <CategoriasProductos />
                 </Route>
-                <Route path="/LastMovieInDb">
-                    <LastMovieInDb />
+                <Route path="/ProductosDestacados">
+                    <ProductosDestacados />
                 </Route>
                 <Route path="/ContentRowMovies">
                     <ContentRowMovies />
