@@ -5,7 +5,7 @@ import CategoriasProductos from './CategoriasProductos';
 import ProductosDestacados from './ProductosDestacados';
 import ContentRowMovies from './ContentRowMovies';
 import NotFound from './NotFound';
-import SearchMovies from './SearchMovies';
+import SearchProducts from './SearchProducts';
 import { Link, Route, Switch } from 'react-router-dom';
 
 function SideBar() {
@@ -100,7 +100,7 @@ function SideBar() {
                     <ContentRowMovies />
                 </Route>
                 <Route path="/search">
-                    <SearchMovies />
+                    <SearchProducts />
                 </Route>
                 <Route component={NotFound} />
             </Switch>

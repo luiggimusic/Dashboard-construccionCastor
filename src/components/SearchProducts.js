@@ -3,10 +3,10 @@ import { useState, useEffect, useRef } from 'react';
 
 // import noPoster from '../assets/images/no-poster.jpg';
 
-function SearchMovies(props) {
+function SearchProducts(props) {
 
 	// Credenciales de API
-	const apiKey = '3f4a10d4'; // Intenta poner cualquier cosa antes para probar
+	// const apiKey = '3f4a10d4'; // Intenta poner cualquier cosa antes para probar
 
 	// const keyword = 'action';
 
@@ -20,14 +20,14 @@ function SearchMovies(props) {
 		setKeyword(search.current.value);
 	};
 
-	const [movies, setMovies] = useState([]);
+	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
-		fetch('http://www.omdbapi.com/?s='+keyword+'&apikey=3f4a10d4')
+		fetch('http://localhost:3000/api/v1/products')
 			.then(res => res.json())
-			.then(data => setMovies(data.Search.map((movie) => {
+			.then(data => setProducts(data.Search.map((product) => {
 				return (
-					{ "Title": movie.Title, "Year": movie.Year, "Poster": movie.Poster }
+					{ "Producto": product.name, "Marca": product.brand, "Precio": product.price }
 				)
 			})))
 			.catch(e => console.log(e))
@@ -36,7 +36,7 @@ function SearchMovies(props) {
 	return (
 		<div className="container-fluid">
 			{
-				apiKey !== '' ?
+				// apiKey !== '' ?
 					<>
 						<div className="row my-4">
 							<div className="col-12 col-md-6">
@@ -54,16 +54,16 @@ function SearchMovies(props) {
 							<div className="col-12">
 								<h2>Productos para la palabra: {keyword}</h2>
 							</div>
-							{/* Listado de películas */}
+							{/* Listado de productos */}
 							{
-								movies.length > 0 && movies.map((movie, i) => {
+								products.length > 0 && products.map((product, i) => {
 									return (
 										<div className="col-sm-6 col-md-3 my-4" key={i}>
 											<div className="card shadow mb-4">
 												<div className="card-header py-3">
-													<h5 className="m-0 font-weight-bold text-gray-800">{movie.Title}</h5>
+													<h5 className="m-0 font-weight-bold text-gray-800">{product.name}</h5>
 												</div>
-												<div className="card-body">
+												{/* <div className="card-body">
 													<div className="text-center">
 														<img
 															className="img-fluid px-3 px-sm-4 mt-3 mb-4"
@@ -73,20 +73,20 @@ function SearchMovies(props) {
 														/>
 													</div>
 													<p>{movie.Year}</p>
-												</div>
+												</div> */}
 											</div>
 										</div>
 									)
 								})
 							}
 						</div>
-						{movies.length === 0 && <div className="alert alert-warning text-center">No se encontraron productos</div>}
+						{products.length === 0 && <div className="alert alert-warning text-center">No se encontraron productos</div>}
 					</>
-					:
-					<div className="alert alert-danger text-center my-4 fs-2">Eyyyy... ¿PUSISTE TU APIKEY?</div>
+					// :
+					// <div className="alert alert-danger text-center my-4 fs-2">Eyyyy... ¿PUSISTE TU APIKEY?</div>
 			}
 		</div>
 	)
 }
 
-export default SearchMovies;
+export default SearchProducts;
