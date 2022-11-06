@@ -6,9 +6,7 @@ const imagenProducto = require.context('../assets/images', true);
 
 function SearchProducts(props) {
 
-
 	const [keyword, setKeyword] = useState('');
-
 	const search = useRef(null);
 	
 	const handleSubmit = (e) => {
@@ -20,9 +18,10 @@ function SearchProducts(props) {
 	const [productos, setProductos] = useState([]);
 
 	useEffect(() => {
-		fetch('http://localhost:3000/api/v1/products'+keyword)
+
+		fetch('http://localhost:3000/api/v1/products/search?keyword='+keyword)
 			.then(res => res.json())
-			.then(data => setProductos(data.data.map((producto) => {
+			.then(data => setProductos(data.map((producto) => {
 				return (
 					{ "name": producto.name, "brand": producto.brand, "price": producto.price, "photo": producto.photo }
 				)
@@ -64,6 +63,7 @@ function SearchProducts(props) {
 														<img
 															className="img-fluid px-3 px-sm-4 mt-3 mb-4"
 															src={ imagenProducto(`./arenaEmbolsada.webp`).default }
+															// src={ imagenProducto(`./${producto.photo}`).default }
 															alt={producto.name}
 															style={{ width: '90%', height: '90%', objectFit: 'cover' }}
 														/>
