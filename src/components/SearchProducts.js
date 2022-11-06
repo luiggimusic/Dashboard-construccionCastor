@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 
-// import noPoster from '../assets/images/no-poster.jpg';
+const imagenProducto = require.context('../assets/images', true);
+
 
 function SearchProducts(props) {
 
@@ -19,11 +20,11 @@ function SearchProducts(props) {
 	const [productos, setProductos] = useState([]);
 
 	useEffect(() => {
-		fetch('http://localhost:3000/api/v1/products')
+		fetch('http://localhost:3000/api/v1/products'+keyword)
 			.then(res => res.json())
 			.then(data => setProductos(data.data.map((producto) => {
 				return (
-					{ "name": producto.name, "brand": producto.brand, "price": producto.price }
+					{ "name": producto.name, "brand": producto.brand, "price": producto.price, "photo": producto.photo }
 				)
 			})))
 			.catch(e => console.log(e))
@@ -56,15 +57,15 @@ function SearchProducts(props) {
 										<div className="col-sm-6 col-md-3 my-4" key={i}>
 											<div className="card shadow mb-4">
 												<div className="card-header py-3">
-													<h5 className="m-0 font-weight-bold text-gray-800">{producto.name}</h5>
+													<h5 className="m-0 font-weight-bold text-gray-800">{producto.name} - {producto.photo}</h5>
 												</div>
 												<div className="card-body">
 													<div className="text-center">
 														<img
 															className="img-fluid px-3 px-sm-4 mt-3 mb-4"
-															src={producto.Poster}
+															src={ imagenProducto(`./arenaEmbolsada.webp`).default }
 															alt={producto.name}
-															style={{ width: '90%', height: '400px', objectFit: 'cover' }}
+															style={{ width: '90%', height: '90%', objectFit: 'cover' }}
 														/>
 													</div>
 													<p>{producto.price}</p>
